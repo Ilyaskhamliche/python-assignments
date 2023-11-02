@@ -1,0 +1,44 @@
+# Initializing an empty list to store student records
+student_records = []
+
+# Function to determine if a student qualifies for Dean's List or Honor Roll
+def qualify_student(gpa):
+    if gpa >= 3.5:
+        return "Dean's List"
+    elif gpa >= 3.25:
+        return "Honor Roll"
+    else:
+        return "Not eligible"
+
+# Input and processing loop
+while True:
+    last_name = input("Enter the student's last name (ZZZ to quit): ")
+    if last_name == 'ZZZ':
+        break  # Exit the loop if 'ZZZ' is entered
+    
+    first_name = input("Enter the student's first name: ")
+    
+    try:
+        gpa = float(input("Enter the student's GPA: "))
+    except ValueError:
+        print("Invalid GPA input. Please enter a valid number.")
+        continue  # Skip the rest of the loop and start over
+    
+    # Check if the student qualifies for Dean's List or Honor Roll
+    qualification = qualify_student(gpa)
+    
+    # Print the result for the current student
+    print(f"{first_name} {last_name} has {qualification} with a GPA of {gpa}\n")
+    
+    # Store the student record
+    student_records.append({
+        'first_name': first_name,
+        'last_name': last_name,
+        'gpa': gpa,
+        'qualification': qualification
+    })
+
+# Print all student records
+print("Student Records:")
+for student in student_records:
+    print(f"{student['first_name']} {student['last_name']} - GPA: {student['gpa']} - Qualification: {student['qualification']}")
