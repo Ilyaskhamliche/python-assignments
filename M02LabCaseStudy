@@ -1,3 +1,8 @@
+#File-Name: M02LabCaseStudy.py
+#Author: Ilyas Khamliche
+#Date: 11/2/2023
+#Purpose: determine whether a student has made dean's list, honor roll, or neither.
+
 # Initializing an empty list to store student records
 student_records = []
 
