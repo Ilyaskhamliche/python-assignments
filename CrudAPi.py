@@ -10,12 +10,12 @@ db = SQLAlchemy(app)
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_name = db.Column(db.String(100), unique=True, nullable=False)
-    author = db.Column(db.String(40), unique=True, nullable=False)
-    publisher = db.Column(db.String(40), unique=True, nullable=True)
+    book_name = db.Column(db.String(100), unique=False, nullable=False)
+    author = db.Column(db.String(40), unique=False, nullable=False)
+    publisher = db.Column(db.String(40), unique=False, nullable=False)
 
     def __repr__(self):
-        return f"{self.book_name} - {self.author}"
+        return f"{self.book_name} - {self.author} - {self.publisher}"
 
 # Create a new book
 @app.route('/books', methods=['POST'])
